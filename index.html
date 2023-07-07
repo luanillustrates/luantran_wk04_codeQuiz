@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css">
+    
     <title>JavaScript Code Quiz</title>
 </head>
 
@@ -11,50 +15,54 @@
 <body>
     <header>
         <h3 id="score-record">scoreboard</h3>
-        <h3 id="timer">time remaining:</h3>
+        <h3 class="timer">time remaining: <span id="timer"></span></h3>
     </header>
     
     <main>
-        <section>
-            <div class="title">
-                <h1>code.quiz</h1>
-                <p>This quiz challenges your JavaScript knowledge with a series of questions. Incorrect answers will incur a five second penalty. Aim for the highest score amongst your peers!</p>
-            </div>
-            <button class="start-button">start quiz</button>
-        </section>
+        <div class="container">
+            <section id="start-screen">
+                <div class="title">
+                    <h1>JavaScript . quiz ( )</h1>
+                    <p>This quiz challenges your JavaScript knowledge with a series of questions. Incorrect answers will incur a five second penalty. Aim for the highest score amongst your peers!</p>
+                </div>
+                <button class="button" id="start-btn">START</button>
+            </section>
 
-        <section>
-            <div hidden class="quiz question">
+            <section hidden class="quiz-question">
                 <h3 id="question"></h3>
+
                 <div class="quiz answers">
                     <button id="answer0" class="answer-button"></button>
                     <button id="answer1" class="answer-button"></button>
                     <button id="answer2" class="answer-button"></button>
                     <button id="answer3" class="answer-button"></button>
                 </div>
-                <div id="result">
 
+                <div id="result">
+                    <div id="result-text"></div>
                 </div>
-            </div>
-            
-            <div hidden id="finalscreen">
+            </section>
+                
+            <section hidden id="finalscreen">
                 <div id="score">
                     <h2>You scored:</h2>
-                    <form>
-                        
+                    <form class="submit-form" id="submit-form">
+                        <label for="initials">Enter initials: </label>
+                        <input type="text" id="initials">
+                        <button class="button" id="submit-button">Submit</button>
                     </form>
                 </div>
-            </div>
-            <div hidden id="leaderboard">
+            </section>
+
+            <section hidden id="leaderboard">
                 <h2>Highscores</h2>
                 <ol id="highscore-list"></ol>
                 <div class="buttons">
-                    <button id="restart-button">restart</button>
-                    <button id="reset-button">reset</button>
+                    <button id="restart-button">restart quiz</button>
+                    <button id="reset-button">reset score</button>
                 </div>
-            </div>
-        </section>
-
+            </section>
+        </div>
     </main>
     <script src="/assets/script.js"></script>
 </body>
