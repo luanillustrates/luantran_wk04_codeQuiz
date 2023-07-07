@@ -38,3 +38,7 @@ header {
     font-weight: 800;
 }
 
+.button:hover {
+    background-color: rgb(96, 227, 161);
+    cursor: pointer;
+}

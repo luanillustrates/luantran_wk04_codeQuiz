@@ -28,14 +28,14 @@
                 <button class="button" id="start-btn">START</button>
             </section>
 
-            <section hidden class="quiz-question">
-                <h3 id="question"></h3>
+            <section hidden id="quiz-question">
+                <h3 id="question-text"></h3>
 
-                <div class="quiz answers">
-                    <button id="answer0" class="answer-button"></button>
-                    <button id="answer1" class="answer-button"></button>
-                    <button id="answer2" class="answer-button"></button>
-                    <button id="answer3" class="answer-button"></button>
+                <div id="quiz-choices">
+                    <button id="choice0" class="choice-button"></button>
+                    <button id="choice1" class="choice-button"></button>
+                    <button id="choice2" class="choice-button"></button>
+                    <button id="choice3" class="choice-button"></button>
                 </div>
 
                 <div id="result">
@@ -43,7 +43,7 @@
                 </div>
             </section>
                 
-            <section hidden id="finalscreen">
+            <section hidden id="finalscore">
                 <div id="score">
                     <h2>You scored:</h2>
                     <form class="submit-form" id="submit-form">
@@ -64,6 +64,6 @@
             </section>
         </div>
     </main>
-    <script src="/assets/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
