@@ -151,10 +151,51 @@ function scoreRecord(event) {
         alert("please enter initials");
         return;
     }
+
+
+    var highScores = {
+        initials: scoreInput.value,
+        score: time,
+    };
+
+    updateLeaderboard(highScores);
+
+    hideContent();
+    leaderScreen.removeAttribute("hidden");
+
+    showLeaderboard();
 }
 
-var highScores = {
-    initials: scoreInput.value,
-    score: time,
-};
+function updateLeaderboard(highScores) {
+    var highScoreArray = getHighScore();
+    highScoreArray.push(highScores);
+    localStorage.setItem("highScoreArray", JSON.stringify(highScoreArray));
+}
 
+function getHighScore() {
+    var storedHighScore = localStorage.getItem("highScoreArray");
+    if (storedHighScore !== null) {
+        var  highScoreArray = JSON.parse(storedHighScore);
+        return highScoreArray;
+    } else {
+        highScoreArray = [];
+    }
+    return highScoreArray;
+}
+
+function showLeaderboard() {
+    var sortedHighScoreArray = sortHighScore();
+    var leaderboardList = document.querySelector("#leaderboard");
+    leaderboardList.innerHTML = "";
+    for (var i = 0; i < sortedHighScoreArray.length; i++) {
+        var highScoreInput = sortedHighScoreArray[i];
+        var addMoreList = document.createElement("li");
+        addMoreList.textContent = 
+            highScoreInput.initials + highScoreInput.score;
+        leaderboardList.append(addMoreList);
+    }
+}
+
+function sortHighScore() {
+    v
+}
