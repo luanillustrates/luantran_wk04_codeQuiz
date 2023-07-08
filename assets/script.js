@@ -57,7 +57,7 @@ function startQuiz() {
     currentQuestion = 0;
     displayQuestion();
 
-    time = 3000;
+    time = 25;
 
     interval = setInterval(countdown, 1000);
 
@@ -78,7 +78,7 @@ function displayTime() {
 }
 
 function displayQuestion() {
-    var question = questions[currentQuestion];
+    var question = questionSet[currentQuestion];
     var choices = question.choices;
 
     var questionTitle = document.querySelector("#question-text");
@@ -94,7 +94,7 @@ function displayQuestion() {
 document.querySelector("#quiz-choices").addEventListener("click", checkResult);
 
 function correctChoice(choiceButton) {
-    return choiceButton.textContent === questions[currentQuestion].answer;
+    return choiceButton.textContent === questionSet[currentQuestion].answer;
 }
 
 function checkResult(eventObject) {
@@ -110,7 +110,7 @@ function checkResult(eventObject) {
         resultText.textContent = "incorrect :("
         setTimeout(hideResultText, 1000);
         if (time >= 10) {
-            time = time -10;
+            time = time -2;
             displayTime();
         }
         else {
@@ -119,4 +119,42 @@ function checkResult(eventObject) {
             endQuiz();
         }
     }
+
+
+    currentQuestion++;
+
+    if (currentQuestion < questionSet.length) {
+        displayQuestion();
+        } else {
+            endQuiz();
+    }
 }
+
+var score = document.querySelector("#score");
+
+function endQuiz() {
+    clearInterval(interval);
+    hideContent();
+    finalScreen.removeAttribute("hidden");
+    score.textContent = time;
+}
+
+var submitBtn = document.querySelector("#submit-button");
+var scoreInput = document.querySelector("#initials");
+
+submitBtn.addEventListener("click", scoreRecord);
+
+function scoreRecord(event) {
+    event.preventDefault();
+    
+    if (!scoreInput.value) {
+        alert("please enter initials");
+        return;
+    }
+}
+
+var highScores = {
+    initials: scoreInput.value,
+    score: time,
+};
+
