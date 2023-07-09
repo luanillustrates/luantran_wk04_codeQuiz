@@ -197,5 +197,44 @@ function showLeaderboard() {
 }
 
 function sortHighScore() {
-    v
+    var highScoreArray = getHighScore();
+    if (!highScoreArray) {
+        return;
+    }
+    
+    highScoreArray.sort(function (a,b) {
+        return b.score - a.score;
+    });
+    return highScoreArray;
+}
+
+var resetScores = document.querySelector("#reset-button");
+resetScores.addEventListener("click", resetHighScore);
+
+function resetHighScore() {
+    localStorage.clear();
+    showLeaderboard();
+}
+
+var restartQuiz = document.querySelector("#restart-button");
+restartQuiz.addEventListener("click", quizAgain);
+
+function quizAgain() {
+    hideContent();
+    startQuiz.removeAttribute("hidden");
+}
+
+var highScoreRecord = document.querySelector("#score-record");
+highScoreRecord.addEventListener("click", viewHighScore);
+
+function viewHighScore() {
+    hideContent();
+    leaderScreen.removeAttribute("hidden");
+
+    clearInterval(interval);
+    
+    time = undefined;
+    displayTime();
+
+    showLeaderboard();
 }
