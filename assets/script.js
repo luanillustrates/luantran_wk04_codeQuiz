@@ -1,6 +1,6 @@
 // questions array 
 var questionSet = [
-    { questionOpt: 'Where do you link the JavaScipt in the HTML?',
+    { questionOpt: 'Where do you link the script.js in the HTML?',
     choices: ["1. it doesn't", "2. in the <head>", "3. in the <body>", "4. inbetween the <head> and <body>"],
     answer: "3. in the <body>",
     },
@@ -157,7 +157,6 @@ function scoreRecord(event) {
         return;
     }
 
-
     var highScores = {
         initials: scoreInput.value,
         score: time,
@@ -221,8 +220,8 @@ function resetHighScore() {
     showLeaderboard();
 }
 
-var restartQuiz = document.querySelector("#restart-button");
-restartQuiz.addEventListener("click", quizAgain);
+var returnBack = document.querySelector("#return-button");
+returnBack.addEventListener("click", quizAgain);
 
 
 function quizAgain() {
@@ -236,7 +235,7 @@ highScoreRecord.addEventListener("click", viewHighScore);
 function viewHighScore() {
     hideContent();
     leaderScreen.removeAttribute("hidden");
-
+    
     clearInterval(interval);
     
     time = undefined;

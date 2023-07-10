@@ -9,6 +9,11 @@ header {
     width: 80%;
 }
 
+#score-record:hover {
+    color: rgb(96, 227, 161);
+    cursor: pointer;
+}
+
 .container {
     padding: 20px;
     flex-direction: column;
@@ -41,4 +46,37 @@ header {
 .button:hover {
     background-color: rgb(96, 227, 161);
     cursor: pointer;
+}
+
+.choice-button {
+    margin: 5px;
+    border-style: none;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(41, 61, 152);
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px  grey;
+    color: white;
+}
+
+.choice-button:hover {
+    color: rgb(96, 227, 161);
+    cursor: pointer;
+}
+
+#leaderboard li {
+    list-style-type: decimal;
+    padding: 2px;
+    margin: 2px;
+}
+
+#quiz-choices {
+    margin-bottom: 25px;
+}
+
+#initials {
+    margin-right: 10px;
 }
