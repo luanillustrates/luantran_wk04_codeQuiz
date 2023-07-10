@@ -5,7 +5,7 @@ A multiple choice quiz on JavaScript.
 
 ## Installation
 
-N/A
+[Deployed link to launch](https://luanillustrates.github.io/luantran_wk04_codeQuiz/)
 
 ## Usage
 
@@ -15,7 +15,7 @@ This quiz challenges your JavaScript knowledge with a series of questions. Incor
 
 ## Credits
 
-
+Various activities from the bootcamp GitLab repository.
 
 ## License
 
