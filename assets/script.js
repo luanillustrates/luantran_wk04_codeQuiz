@@ -1,3 +1,4 @@
+// questions array 
 var questionSet = [
     { questionOpt: 'Where do you link the JavaScipt in the HTML?',
     choices: ["1. it doesn't", "2. in the <head>", "3. in the <body>", "4. inbetween the <head> and <body>"],
@@ -25,18 +26,22 @@ var questionSet = [
     },
 ];
 
+// breaking down each section for later functions
 var startScreen = document.querySelector("#start-screen");
 var quizScreen = document.querySelector("#quiz-question");
 var finalScreen = document.querySelector("#finalscore");
 var leaderScreen = document.querySelector("#leaderboard");
 
+
+// hiding until called upon
 function hideContent() {
     startScreen.setAttribute("hidden", true);
     quizScreen.setAttribute("hidden", true);
     finalScreen.setAttribute("hidden", true);
     leaderScreen.setAttribute("hidden", true);
-};
+}
 
+// hiding results
 var result = document.querySelector("#result");
 var resultText = document.querySelector("#result-text");
 
@@ -109,7 +114,7 @@ function checkResult(eventObject) {
     else {
         resultText.textContent = "incorrect :("
         setTimeout(hideResultText, 1000);
-        if (time >= 10) {
+        if (time >= 5) {
             time = time -2;
             displayTime();
         }
@@ -191,7 +196,7 @@ function showLeaderboard() {
         var highScoreInput = sortedHighScoreArray[i];
         var addMoreList = document.createElement("li");
         addMoreList.textContent = 
-            highScoreInput.initials + highScoreInput.score;
+            highScoreInput.initials + " scored: " + highScoreInput.score;
         leaderboardList.append(addMoreList);
     }
 }
@@ -218,6 +223,7 @@ function resetHighScore() {
 
 var restartQuiz = document.querySelector("#restart-button");
 restartQuiz.addEventListener("click", quizAgain);
+
 
 function quizAgain() {
     hideContent();
