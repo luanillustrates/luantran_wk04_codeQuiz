@@ -11,7 +11,7 @@ N/A
 
 This quiz challenges your JavaScript knowledge with a series of questions. Incorrect answers will incur a five second penalty. Aim for the highest score amongst your peers!
 
-![website's appearance and functionality preview](./screenshot.jpg)
+![website's appearance and functionality preview](../screenshot.jpg)
 
 ## Credits
 
