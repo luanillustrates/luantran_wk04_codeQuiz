@@ -49,6 +49,7 @@ function hideResultText() {
     result.style.display = "none";
 }
 
+// start of quiz
 var interval;
 var time;
 var currentQuestion;
@@ -69,6 +70,7 @@ function startQuiz() {
     displayTime();
 }
 
+// timing related
 function countdown() {
     time--;
     displayTime();
@@ -82,6 +84,7 @@ function displayTime() {
     showTime.textContent = time;
 }
 
+// questions start functions
 function displayQuestion() {
     var question = questionSet[currentQuestion];
     var choices = question.choices;
@@ -135,6 +138,7 @@ function checkResult(eventObject) {
     }
 }
 
+// quiz end functions that include the scores
 var score = document.querySelector("#score");
 
 function endQuiz() {
@@ -189,7 +193,7 @@ function getHighScore() {
 
 function showLeaderboard() {
     var sortedHighScoreArray = sortHighScore();
-    var leaderboardList = document.querySelector("#leaderboard");
+    var leaderboardList = document.querySelector("#highscore-list");
     leaderboardList.innerHTML = "";
     for (var i = 0; i < sortedHighScoreArray.length; i++) {
         var highScoreInput = sortedHighScoreArray[i];
@@ -212,6 +216,7 @@ function sortHighScore() {
     return highScoreArray;
 }
 
+// restarting the quiz
 var resetScores = document.querySelector("#reset-button");
 resetScores.addEventListener("click", resetHighScore);
 
@@ -226,7 +231,7 @@ returnBack.addEventListener("click", quizAgain);
 
 function quizAgain() {
     hideContent();
-    startQuiz.removeAttribute("hidden");
+    startScreen.removeAttribute("hidden");
 }
 
 var highScoreRecord = document.querySelector("#score-record");
